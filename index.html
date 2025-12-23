@@ -1,349 +1,288 @@
 <!--@layout(/layout/basic/layout.html)-->
+<!--@css(/layout/basic/css/main.css)-->
+<!--@js(/layout/basic/js/main.js)-->
 
-<!--@contents-->
-<div id="contents">
-    <!-- Main Visual Slider -->
-    <section class="main_visual">
-        <div class="visual_slider">
-            <div class="slide slide1">
-                <div class="slide_content">
-                    <h2 class="slide_title">2025 New Collection</h2>
-                    <p class="slide_desc">Discover our latest arrivals</p>
-                    <a href="/product/list.html" class="btn_slide">Shop Now</a>
-                </div>
-            </div>
-            <div class="slide slide2">
-                <div class="slide_content">
-                    <h2 class="slide_title">Special Offer</h2>
-                    <p class="slide_desc">Up to 50% off on selected items</p>
-                    <a href="/promotion/event.html" class="btn_slide">View Deals</a>
-                </div>
-            </div>
-            <div class="slide slide3">
-                <div class="slide_content">
-                    <h2 class="slide_title">Free Shipping</h2>
-                    <p class="slide_desc">On orders over $50</p>
-                    <a href="/product/list.html" class="btn_slide">Start Shopping</a>
-                </div>
-            </div>
-        </div>
-        <div class="slider_controls">
-            <button class="slider_prev">‹</button>
-            <button class="slider_next">›</button>
-        </div>
-        <div class="slider_dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
-    </section>
+<!-- 메인 팝업 -->
+<div id="mainPopup" class="popup_overlay">
+    <div class="popup_container">
+        <button type="button" class="popup_close" onclick="closePopup()">×</button>
 
-    <!-- Quick Category Menu -->
-    <section class="quick_category">
-        <div class="container">
-            <ul class="category_list">
-                <li class="category_item">
-                    <a href="/product/list.html?cate_no=1">
-                        <div class="category_icon">
-                            <img src="/web/upload/category_icon_1.png" alt="Women" />
-                        </div>
-                        <span class="category_name">Women</span>
-                    </a>
-                </li>
-                <li class="category_item">
-                    <a href="/product/list.html?cate_no=2">
-                        <div class="category_icon">
-                            <img src="/web/upload/category_icon_2.png" alt="Men" />
-                        </div>
-                        <span class="category_name">Men</span>
-                    </a>
-                </li>
-                <li class="category_item">
-                    <a href="/product/list.html?cate_no=3">
-                        <div class="category_icon">
-                            <img src="/web/upload/category_icon_3.png" alt="Accessories" />
-                        </div>
-                        <span class="category_name">Accessories</span>
-                    </a>
-                </li>
-                <li class="category_item">
-                    <a href="/product/list.html?cate_no=4">
-                        <div class="category_icon">
-                            <img src="/web/upload/category_icon_4.png" alt="Shoes" />
-                        </div>
-                        <span class="category_name">Shoes</span>
-                    </a>
-                </li>
-                <li class="category_item">
-                    <a href="/product/list.html?cate_no=5">
-                        <div class="category_icon">
-                            <img src="/web/upload/category_icon_5.png" alt="Sale" />
-                        </div>
-                        <span class="category_name">Sale</span>
-                    </a>
-                </li>
+        <!-- 슬라이드 컨테이너 -->
+        <div class="popup_slides_container">
+            <!-- 슬라이드 1 -->
+            <div class="popup_slide active">
+                <div class="popup_image_header">
+                    <img src="/SkinImg/img/popup.jpg" alt="디자인 샘플 1">
+                    <div class="popup_text_overlay">
+                        <h2 class="popup_title">홈페이지의 첫 시작,</h2>
+                        <p class="popup_subtitle">맞춤형 무드를 담은 첫 페이지를 함께 합니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 슬라이드 2 -->
+            <div class="popup_slide">
+                <div class="popup_image_header">
+                    <img src="/SkinImg/img/popup.jpg" alt="디자인 샘플 2">
+                    <div class="popup_text_overlay">
+                        <h2 class="popup_title">다양한 레이아웃 구성</h2>
+                        <p class="popup_subtitle">원하는 스타일에 맞춰 손쉽게 커스텀해보세요.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 슬라이드 3 -->
+            <div class="popup_slide">
+                <div class="popup_image_header">
+                    <img src="/SkinImg/img/popup.jpg" alt="디자인 샘플 3">
+                    <div class="popup_text_overlay">
+                        <h2 class="popup_title">프리미엄 디자인</h2>
+                        <p class="popup_subtitle">세련된 레이아웃으로 브랜드 가치를 높이세요.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 화살표 버튼 -->
+            <button type="button" class="popup_arrow popup_prev" onclick="changeSlide(-1)">‹</button>
+            <button type="button" class="popup_arrow popup_next" onclick="changeSlide(1)">›</button>
+
+            <!-- 인디케이터 (점) -->
+            <div class="popup_indicators">
+                <span class="popup_dot active" onclick="goToSlide(0)"></span>
+                <span class="popup_dot" onclick="goToSlide(1)"></span>
+                <span class="popup_dot" onclick="goToSlide(2)"></span>
+            </div>
+        </div>
+
+        <!-- 푸터: 버튼 -->
+        <div class="popup_footer">
+            <button type="button" class="popup_btn_today" onclick="closePopupToday()">오늘 하루 열지 않기</button>
+            <button type="button" class="popup_btn_close" onclick="closePopup()">닫기</button>
+        </div>
+    </div>
+</div>
+
+<!-- Hero Section -->
+<section class="hero_section" data-ez-module="hero/1">
+    <div class="hero_inner">
+        <div class="hero_content">
+            <div class="hero_text">
+                <h1 class="hero_title" data-ez-role="title">
+                    피부가 먼저 느끼는 <br>본질적인 아름다움
+                </h1>
+                <p class="hero_desc" data-ez-role="desc">
+                    자연에서 답을 찾은 성분으로매일의 스킨케어를 바꿉니다.
+                </p>
+                <a href="/product/list.html" class="btn btn_primary" data-ez-role="a">
+                    제품 보러가기
+                </a>
+            </div>
+        </div>
+        <div class="hero_image">
+            <img src="/SkinImg/img/hero.jpg" alt="히어로 이미지">
+        </div>
+    </div>
+</section>
+
+<!-- Essential Section -->
+<section class="essential_section" data-ez-module="text/1">
+    <div class="section_inner">
+        <h2 class="section_title" data-ez-role="title">일상 속 피부를 위한조용한 휴식</h2>
+        <p class="section_description" data-ez-role="desc">
+            빠르게 흘러가는 하루 속에서도피부만큼은 잠시 숨을 수 있기를 바랍니다.
+            <br>성분 하나, 텍스처 하나까지 고민해
+            <br>피부에 편안함과 여유를 전하는 섬세한 뷰티 케어를 제안합니다.
+        </p>
+        <a href="#" class="btn btn_secondary" data-ez-role="a">우리의 철학 알아보기</a>
+    </div>
+</section>
+
+<!-- Bestsellers Section -->
+<section class="bestsellers_section" data-ez-module="product-list/1">
+    <div class="section_inner">
+        <h2 class="section_subtitle" data-ez-role="title">인기제품</h2>
+
+        <!-- Product List Module -->
+        <div module="product_listmain_1" class="ec-base-product">
+            <!--@css(/css/module/product/listmain.css)-->
+            <!--
+                $count = 4
+                $basket_result = /product/add_basket.html
+                $basket_option = /product/basket_option.html
+                $moreview = no
+                $cache = yes
+            -->
+
+            <ul class="prdList grid4">
+                <!--@import(/product/list_product.html)-->
             </ul>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- New Arrivals Section -->
-    <section class="new_arrivals">
-        <div class="container">
-            <div class="section_header">
-                <h2 class="section_title">New Arrivals</h2>
-                <p class="section_subtitle">Check out our latest products</p>
-                <a href="/product/list.html?sort=recent" class="btn_more">View All</a>
+<!-- Video Section -->
+<section class="video_section" data-ez-module="video/1">
+    <div class="video_container">
+        <!-- 유튜브 iframe - 스킨케어 광고 (고화질) -->
+        <iframe id="youtubeVideo"
+            src="https://www.youtube.com/embed/zM47A9e8FmU?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1&loop=1&playlist=zM47A9e8FmU&vq=hd1080"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
+
+        <div class="video_overlay">
+            <p class="video_text" data-ez-role="desc">
+                자연에서 찾은 본질적인 아름다움
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Catalog Section -->
+<section id="catalog" class="catalog_section" data-ez-module="product-list/2">
+    <div class="section_inner">
+        <h2 class="section_title_center" data-ez-role="title">제품목록</h2>
+
+        <div class="catalog_tabs">
+            <button type="button" class="tab_btn active" data-tab="new">스켄케어</button>
+            <button type="button" class="tab_btn" data-tab="popular">기타제품</button>
+        </div>
+
+        <!-- Product List Module -->
+        <div module="product_listmain_2" class="ec-base-product">
+            <!--@css(/css/module/product/listmain.css)-->
+            <!--
+                $count = 6
+                $basket_result = /product/add_basket.html
+                $basket_option = /product/basket_option.html
+                $moreview = yes
+                $cache = yes
+            -->
+
+            <ul class="prdList grid3">
+                <!--@import(/product/list_product.html)-->
+            </ul>
+        </div>
+
+        <!-- Load More Button Module -->
+        <div module="product_listmore_2" class="load_more">
+            <button type="button" onclick="{$more_action}" class="btn btn_load_more">
+                다음 페이지
+                <span class="page_info">
+                    (<span id="more_current_page_{$display_group}">{$current_page}</span>/<span
+                        id="more_total_page_{$display_group}">{$total_page}</span>)
+                </span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Nature Banner -->
+<section class="nature_banner" data-ez-module="banner/1">
+    <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=1400&q=80" alt="화이트 뷰티" class="banner_bg">
+    <div class="banner_overlay">
+        <h2 class="banner_text" data-ez-role="title"></h2>
+    </div>
+</section>
+
+<!-- Principles Section -->
+<section class="principles_section" data-ez-module="text/2">
+    <div class="section_inner">
+        <h2 class="section_title_center" data-ez-role="title">피부가 느끼는 단계별 변화</h2>
+        <div class="principles_grid">
+            <div class="principle_card">
+                <div class="principle_icon">🌿</div>
+                <h3 data-ez-role="title">바르는 순간</h3>
+                <p data-ez-role="desc">크림이 닿자마자 부드럽게 펴져요<br>민감한 피부도 자극 없이 편안해요</p>
             </div>
-            <div module="product_listmain_1" class="ec-base-product">
-                <!--
-                    $count = 4
-                    $basket_result = /product/add_basket.html
-                    $basket_option = /product/basket_option.html
-                    $moreview = no
-                    $cache = yes
-                -->
-                <ul class="prdList grid4">
-                    <!--@import(/product/list_product.html)-->
+            <div class="principle_card">
+                <div class="principle_icon">✨</div>
+                <h3 data-ez-role="title">흡수 직후</h3>
+                <p data-ez-role="desc">끈적임 없이 빠르게 스며들어요<br>손에 남는 잔여감이 거의 없어요</p>
+            </div>
+            <div class="principle_card">
+                <div class="principle_icon">🌿</div>
+                <h3 data-ez-role="title">하루가 지나고</h3>
+                <p data-ez-role="desc">당김 없이 촉촉함이 유지돼요<br>매일 써도 부담이 없어요</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Product Detail Section -->
+<section class="product_detail_section" data-ez-module="content/1">
+    <div class="section_inner">
+        <div class="detail_content">
+            <div class="detail_text">
+                <h3 class="detail_category" data-ez-role="subtitle">Our Values</h3>
+                <h2 class="detail_title" data-ez-role="title">피부에 닿는 순간부터, <br>차이를 느낄 수 있도록</h2>
+                <p class="detail_description" data-ez-role="desc">
+                    자연 유래 성분과 피부 밸런스를 고려한 포뮬러로<br>자극 없이 편안한 케어를 완성합니다.
+                </p>
+                <ul class="detail_list">
+                    <li data-ez-role="li">자연 유래 성분 중심 처방</li>
+                    <li data-ez-role="li">하루 종일 유지되는 보습감</li>
+                    <li data-ez-role="li">산뜻하지만 깊은 영양</li>
+                    <li data-ez-role="li">매일 손이 가는 텍스처</li>
                 </ul>
+                <a href="/product/list.html" class="btn btn_primary" data-ez-role="a">제품 라인 확인하기</a>
+            </div>
+            <div class="detail_image">
+                <img src="/SkinImg/img/detail_image.jpg" alt="디테일 이미지">
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Promotion Banner -->
-    <section class="promotion_banner">
-        <div class="banner_grid">
-            <div class="banner_item banner_large">
-                <a href="/promotion/event.html?event_no=1">
-                    <img src="/web/upload/banner_01.jpg" alt="Summer Sale" />
-                    <div class="banner_overlay">
-                        <h3>Summer Sale</h3>
-                        <p>Up to 50% OFF</p>
-                    </div>
-                </a>
+<!-- Interior Gallery -->
+<section id="interiors" class="interior_gallery" data-ez-module="gallery/1">
+    <div class="section_inner">
+        <h2 class="section_title_center" data-ez-role="title">피부가 먼저 반응하는 순간.</h2>
+        <p class="section_subtitle_center" data-ez-role="desc">당김, 거칠음, 피로감. 피부는 늘 신호를 보내고 있습니다</p>
+        <div class="gallery_grid">
+            <div class="gallery_item large">
+                <img src="/SkinImg/img/gallery_item1.jpg" alt="메인스킨이미지">
             </div>
-            <div class="banner_item banner_small">
-                <a href="/promotion/event.html?event_no=2">
-                    <img src="/web/upload/banner_02.jpg" alt="New Arrivals" />
-                    <div class="banner_overlay">
-                        <h3>New Arrivals</h3>
-                        <p>Fresh Styles</p>
-                    </div>
-                </a>
+            <div class="gallery_item">
+                <img src="/SkinImg/img/gallery_item2.jpg" alt="스킨케어 이미지">
             </div>
-            <div class="banner_item banner_small">
-                <a href="/promotion/event.html?event_no=3">
-                    <img src="/web/upload/banner_03.jpg" alt="Free Shipping" />
-                    <div class="banner_overlay">
-                        <h3>Free Shipping</h3>
-                        <p>Orders over $50</p>
-                    </div>
-                </a>
+            <div class="gallery_item">
+                <img src="/SkinImg/img/gallery_item3.jpg" alt="다양한 스킨병 이미지">
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Best Sellers Section -->
-    <section class="best_sellers">
-        <div class="container">
-            <div class="section_header">
-                <h2 class="section_title">Best Sellers</h2>
-                <p class="section_subtitle">Most popular items</p>
-                <a href="/product/list.html?sort=best" class="btn_more">View All</a>
-            </div>
-            <div module="product_listmain_2" class="ec-base-product">
-                <!--
-                    $count = 4
-                    $basket_result = /product/add_basket.html
-                    $basket_option = /product/basket_option.html
-                    $moreview = no
-                    $cache = yes
-                -->
-                <ul class="prdList grid4">
-                    <!--@import(/product/list_product.html)-->
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features_section">
-        <div class="container">
-            <div class="features_grid">
-                <div class="feature_item">
-                    <div class="feature_icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path d="M20 7h-4V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2H4a2 2 0 00-2 2v11a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/>
-                        </svg>
-                    </div>
-                    <h3 class="feature_title">Free Shipping</h3>
-                    <p class="feature_desc">On orders over $50</p>
+<!-- Reviews Section -->
+<section class="reviews_section" data-ez-module="reviews/1">
+    <div class="section_inner">
+        <h2 class="section_title_center" data-ez-role="title">사용자 후기</h2>
+        <div class="reviews_container">
+            <div class="review_card">
+                <div class="review_avatar">
+                    <img src="https://i.pravatar.cc/150?img=1" alt="사용자 1">
                 </div>
-                <div class="feature_item">
-                    <div class="feature_icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
-                        </svg>
-                    </div>
-                    <h3 class="feature_title">Secure Payment</h3>
-                    <p class="feature_desc">100% secure transactions</p>
-                </div>
-                <div class="feature_item">
-                    <div class="feature_icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                            <path d="M22 6l-10 7L2 6"/>
-                        </svg>
-                    </div>
-                    <h3 class="feature_title">24/7 Support</h3>
-                    <p class="feature_desc">Dedicated customer service</p>
-                </div>
-                <div class="feature_item">
-                    <div class="feature_icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path d="M9 11l3 3L22 4"/>
-                            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
-                        </svg>
-                    </div>
-                    <h3 class="feature_title">Easy Returns</h3>
-                    <p class="feature_desc">30-day return policy</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Recommended Products Section -->
-    <section class="recommended_products">
-        <div class="container">
-            <div class="section_header">
-                <h2 class="section_title">You May Also Like</h2>
-                <p class="section_subtitle">Handpicked recommendations</p>
-            </div>
-            <div module="product_listmain_3" class="ec-base-product">
-                <!--
-                    $count = 3
-                    $basket_result = /product/add_basket.html
-                    $basket_option = /product/basket_option.html
-                    $moreview = no
-                    $cache = yes
-                -->
-                <ul class="prdList grid3">
-                    <!--@import(/product/list_product.html)-->
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Customer Reviews Section -->
-    <section class="customer_reviews">
-        <div class="container">
-            <div class="section_header">
-                <h2 class="section_title">What Our Customers Say</h2>
-                <p class="section_subtitle">Real reviews from real customers</p>
-            </div>
-            <div class="reviews_grid">
-                <div class="review_item">
+                <div class="review_content">
+                    <h4 class="review_name" data-ez-role="name">사용감이 정말 달라요</h4>
                     <div class="review_stars">★★★★★</div>
-                    <p class="review_text">"Amazing quality and fast shipping! Will definitely order again."</p>
-                    <p class="review_author">- Sarah K.</p>
-                </div>
-                <div class="review_item">
-                    <div class="review_stars">★★★★★</div>
-                    <p class="review_text">"Love the products! Great customer service and easy returns."</p>
-                    <p class="review_author">- John D.</p>
-                </div>
-                <div class="review_item">
-                    <div class="review_stars">★★★★★</div>
-                    <p class="review_text">"Best online shopping experience. Highly recommended!"</p>
-                    <p class="review_author">- Emily R.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Brand Story Section -->
-    <section class="brand_story">
-        <div class="container">
-            <div class="story_content">
-                <div class="story_text">
-                    <h2 class="story_title">Our Story</h2>
-                    <p class="story_desc">
-                        We believe in creating timeless pieces that bring joy to your everyday life.
-                        Our carefully curated collection combines quality, style, and sustainability.
+                    <p class="review_text" data-ez-role="desc">
+                        성분이 믿고 사용할 수 있는만큼,<br> 부담없이 사용하기 좋아요.<br>선물로도 많이 선택하는 이유를 알겠어요.
                     </p>
-                    <p class="story_desc">
-                        Every product is selected with care, ensuring that you receive only the best.
-                        Join thousands of satisfied customers who trust us for their shopping needs.
+                </div>
+            </div>
+            <div class="review_card">
+                <div class="review_avatar">
+                    <img src="https://i.pravatar.cc/150?img=5" alt="사용자 2">
+                </div>
+                <div class="review_content">
+                    <h4 class="review_name" data-ez-role="name">자극 없이 편안해요</h4>
+                    <div class="review_stars">★★★★★</div>
+                    <p class="review_text" data-ez-role="desc">
+                        민감한 피부인데도 여러 번 발라도<br> 따갑지 않고 편안했어요.<br>하루 종일 걱정이던<br> 피부 고민이 많이 사라졌습니다.
                     </p>
-                    <a href="/about/index.html" class="btn_story">Learn More</a>
-                </div>
-                <div class="story_image">
-                    <img src="/web/upload/brand_story.jpg" alt="Our Story" />
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Instagram Feed Section -->
-    <section class="instagram_feed">
-        <div class="container">
-            <div class="section_header">
-                <h2 class="section_title">Follow Us @ourstore</h2>
-                <p class="section_subtitle">Get inspired by our community</p>
-            </div>
-            <div class="instagram_grid">
-                <a href="https://instagram.com" class="instagram_item" target="_blank">
-                    <img src="/web/upload/instagram_01.jpg" alt="Instagram Post 1" />
-                    <div class="instagram_overlay">
-                        <span class="instagram_icon">📷</span>
-                    </div>
-                </a>
-                <a href="https://instagram.com" class="instagram_item" target="_blank">
-                    <img src="/web/upload/instagram_02.jpg" alt="Instagram Post 2" />
-                    <div class="instagram_overlay">
-                        <span class="instagram_icon">📷</span>
-                    </div>
-                </a>
-                <a href="https://instagram.com" class="instagram_item" target="_blank">
-                    <img src="/web/upload/instagram_03.jpg" alt="Instagram Post 3" />
-                    <div class="instagram_overlay">
-                        <span class="instagram_icon">📷</span>
-                    </div>
-                </a>
-                <a href="https://instagram.com" class="instagram_item" target="_blank">
-                    <img src="/web/upload/instagram_04.jpg" alt="Instagram Post 4" />
-                    <div class="instagram_overlay">
-                        <span class="instagram_icon">📷</span>
-                    </div>
-                </a>
-                <a href="https://instagram.com" class="instagram_item" target="_blank">
-                    <img src="/web/upload/instagram_05.jpg" alt="Instagram Post 5" />
-                    <div class="instagram_overlay">
-                        <span class="instagram_icon">📷</span>
-                    </div>
-                </a>
-                <a href="https://instagram.com" class="instagram_item" target="_blank">
-                    <img src="/web/upload/instagram_06.jpg" alt="Instagram Post 6" />
-                    <div class="instagram_overlay">
-                        <span class="instagram_icon">📷</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="newsletter_section">
-        <div class="container">
-            <div class="newsletter_content">
-                <h2 class="newsletter_title">Subscribe to Our Newsletter</h2>
-                <p class="newsletter_desc">Get exclusive deals, new arrivals, and special offers delivered to your inbox</p>
-                <form class="newsletter_form">
-                    <input type="email" class="newsletter_input" placeholder="Enter your email address" required />
-                    <button type="submit" class="newsletter_submit">Subscribe</button>
-                </form>
-                <p class="newsletter_privacy">We respect your privacy. Unsubscribe anytime.</p>
-            </div>
-        </div>
-    </section>
-</div>
-<!--@/contents-->
+    </div>
+</section>
