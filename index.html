@@ -2,58 +2,346 @@
 
 <!--@contents-->
 <div id="contents">
-    <!-- Hero Section -->
-    <section class="hero_section">
-        <div class="hero_content">
-            <h1 class="hero_title">Welcome to Our Store</h1>
-            <p class="hero_subtitle">Discover amazing products</p>
+    <!-- Main Visual Slider -->
+    <section class="main_visual">
+        <div class="visual_slider">
+            <div class="slide slide1">
+                <div class="slide_content">
+                    <h2 class="slide_title">2025 New Collection</h2>
+                    <p class="slide_desc">Discover our latest arrivals</p>
+                    <a href="/product/list.html" class="btn_slide">Shop Now</a>
+                </div>
+            </div>
+            <div class="slide slide2">
+                <div class="slide_content">
+                    <h2 class="slide_title">Special Offer</h2>
+                    <p class="slide_desc">Up to 50% off on selected items</p>
+                    <a href="/promotion/event.html" class="btn_slide">View Deals</a>
+                </div>
+            </div>
+            <div class="slide slide3">
+                <div class="slide_content">
+                    <h2 class="slide_title">Free Shipping</h2>
+                    <p class="slide_desc">On orders over $50</p>
+                    <a href="/product/list.html" class="btn_slide">Start Shopping</a>
+                </div>
+            </div>
+        </div>
+        <div class="slider_controls">
+            <button class="slider_prev">‹</button>
+            <button class="slider_next">›</button>
+        </div>
+        <div class="slider_dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
         </div>
     </section>
 
-    <!-- Main Product Grid (4 columns) -->
-    <section class="product_section">
-        <div class="section_header">
-            <h2>Featured Products</h2>
-        </div>
-        <div module="product_listmain_1" class="ec-base-product">
-            <!--
-                $count = 4
-                $basket_result = /product/add_basket.html
-                $basket_option = /product/basket_option.html
-                $moreview = no
-                $cache = yes
-            -->
-            <ul class="prdList grid4">
-                <!--@import(/product/list_product.html)-->
+    <!-- Quick Category Menu -->
+    <section class="quick_category">
+        <div class="container">
+            <ul class="category_list">
+                <li class="category_item">
+                    <a href="/product/list.html?cate_no=1">
+                        <div class="category_icon">
+                            <img src="/web/upload/category_icon_1.png" alt="Women" />
+                        </div>
+                        <span class="category_name">Women</span>
+                    </a>
+                </li>
+                <li class="category_item">
+                    <a href="/product/list.html?cate_no=2">
+                        <div class="category_icon">
+                            <img src="/web/upload/category_icon_2.png" alt="Men" />
+                        </div>
+                        <span class="category_name">Men</span>
+                    </a>
+                </li>
+                <li class="category_item">
+                    <a href="/product/list.html?cate_no=3">
+                        <div class="category_icon">
+                            <img src="/web/upload/category_icon_3.png" alt="Accessories" />
+                        </div>
+                        <span class="category_name">Accessories</span>
+                    </a>
+                </li>
+                <li class="category_item">
+                    <a href="/product/list.html?cate_no=4">
+                        <div class="category_icon">
+                            <img src="/web/upload/category_icon_4.png" alt="Shoes" />
+                        </div>
+                        <span class="category_name">Shoes</span>
+                    </a>
+                </li>
+                <li class="category_item">
+                    <a href="/product/list.html?cate_no=5">
+                        <div class="category_icon">
+                            <img src="/web/upload/category_icon_5.png" alt="Sale" />
+                        </div>
+                        <span class="category_name">Sale</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </section>
 
-    <!-- Catalog Section (3 columns) -->
-    <section class="catalog_section">
-        <div class="section_header">
-            <h2>Shop by Category</h2>
-        </div>
-        <div module="product_listmain_2" class="ec-base-product">
-            <!--
-                $count = 3
-                $basket_result = /product/add_basket.html
-                $basket_option = /product/basket_option.html
-                $moreview = no
-                $cache = yes
-            -->
-            <ul class="prdList grid3">
-                <!--@import(/product/list_product.html)-->
-            </ul>
+    <!-- New Arrivals Section -->
+    <section class="new_arrivals">
+        <div class="container">
+            <div class="section_header">
+                <h2 class="section_title">New Arrivals</h2>
+                <p class="section_subtitle">Check out our latest products</p>
+                <a href="/product/list.html?sort=recent" class="btn_more">View All</a>
+            </div>
+            <div module="product_listmain_1" class="ec-base-product">
+                <!--
+                    $count = 4
+                    $basket_result = /product/add_basket.html
+                    $basket_option = /product/basket_option.html
+                    $moreview = no
+                    $cache = yes
+                -->
+                <ul class="prdList grid4">
+                    <!--@import(/product/list_product.html)-->
+                </ul>
+            </div>
         </div>
     </section>
 
-    <!-- Video Section -->
-    <section class="video_section">
-        <div class="video_wrapper">
-            <h2>Watch Our Story</h2>
-            <div class="video_container">
-                <!-- Video content here -->
+    <!-- Promotion Banner -->
+    <section class="promotion_banner">
+        <div class="banner_grid">
+            <div class="banner_item banner_large">
+                <a href="/promotion/event.html?event_no=1">
+                    <img src="/web/upload/banner_01.jpg" alt="Summer Sale" />
+                    <div class="banner_overlay">
+                        <h3>Summer Sale</h3>
+                        <p>Up to 50% OFF</p>
+                    </div>
+                </a>
+            </div>
+            <div class="banner_item banner_small">
+                <a href="/promotion/event.html?event_no=2">
+                    <img src="/web/upload/banner_02.jpg" alt="New Arrivals" />
+                    <div class="banner_overlay">
+                        <h3>New Arrivals</h3>
+                        <p>Fresh Styles</p>
+                    </div>
+                </a>
+            </div>
+            <div class="banner_item banner_small">
+                <a href="/promotion/event.html?event_no=3">
+                    <img src="/web/upload/banner_03.jpg" alt="Free Shipping" />
+                    <div class="banner_overlay">
+                        <h3>Free Shipping</h3>
+                        <p>Orders over $50</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Sellers Section -->
+    <section class="best_sellers">
+        <div class="container">
+            <div class="section_header">
+                <h2 class="section_title">Best Sellers</h2>
+                <p class="section_subtitle">Most popular items</p>
+                <a href="/product/list.html?sort=best" class="btn_more">View All</a>
+            </div>
+            <div module="product_listmain_2" class="ec-base-product">
+                <!--
+                    $count = 4
+                    $basket_result = /product/add_basket.html
+                    $basket_option = /product/basket_option.html
+                    $moreview = no
+                    $cache = yes
+                -->
+                <ul class="prdList grid4">
+                    <!--@import(/product/list_product.html)-->
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features_section">
+        <div class="container">
+            <div class="features_grid">
+                <div class="feature_item">
+                    <div class="feature_icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M20 7h-4V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2H4a2 2 0 00-2 2v11a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature_title">Free Shipping</h3>
+                    <p class="feature_desc">On orders over $50</p>
+                </div>
+                <div class="feature_item">
+                    <div class="feature_icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature_title">Secure Payment</h3>
+                    <p class="feature_desc">100% secure transactions</p>
+                </div>
+                <div class="feature_item">
+                    <div class="feature_icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <path d="M22 6l-10 7L2 6"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature_title">24/7 Support</h3>
+                    <p class="feature_desc">Dedicated customer service</p>
+                </div>
+                <div class="feature_item">
+                    <div class="feature_icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M9 11l3 3L22 4"/>
+                            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature_title">Easy Returns</h3>
+                    <p class="feature_desc">30-day return policy</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommended Products Section -->
+    <section class="recommended_products">
+        <div class="container">
+            <div class="section_header">
+                <h2 class="section_title">You May Also Like</h2>
+                <p class="section_subtitle">Handpicked recommendations</p>
+            </div>
+            <div module="product_listmain_3" class="ec-base-product">
+                <!--
+                    $count = 3
+                    $basket_result = /product/add_basket.html
+                    $basket_option = /product/basket_option.html
+                    $moreview = no
+                    $cache = yes
+                -->
+                <ul class="prdList grid3">
+                    <!--@import(/product/list_product.html)-->
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section class="customer_reviews">
+        <div class="container">
+            <div class="section_header">
+                <h2 class="section_title">What Our Customers Say</h2>
+                <p class="section_subtitle">Real reviews from real customers</p>
+            </div>
+            <div class="reviews_grid">
+                <div class="review_item">
+                    <div class="review_stars">★★★★★</div>
+                    <p class="review_text">"Amazing quality and fast shipping! Will definitely order again."</p>
+                    <p class="review_author">- Sarah K.</p>
+                </div>
+                <div class="review_item">
+                    <div class="review_stars">★★★★★</div>
+                    <p class="review_text">"Love the products! Great customer service and easy returns."</p>
+                    <p class="review_author">- John D.</p>
+                </div>
+                <div class="review_item">
+                    <div class="review_stars">★★★★★</div>
+                    <p class="review_text">"Best online shopping experience. Highly recommended!"</p>
+                    <p class="review_author">- Emily R.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Story Section -->
+    <section class="brand_story">
+        <div class="container">
+            <div class="story_content">
+                <div class="story_text">
+                    <h2 class="story_title">Our Story</h2>
+                    <p class="story_desc">
+                        We believe in creating timeless pieces that bring joy to your everyday life.
+                        Our carefully curated collection combines quality, style, and sustainability.
+                    </p>
+                    <p class="story_desc">
+                        Every product is selected with care, ensuring that you receive only the best.
+                        Join thousands of satisfied customers who trust us for their shopping needs.
+                    </p>
+                    <a href="/about/index.html" class="btn_story">Learn More</a>
+                </div>
+                <div class="story_image">
+                    <img src="/web/upload/brand_story.jpg" alt="Our Story" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Feed Section -->
+    <section class="instagram_feed">
+        <div class="container">
+            <div class="section_header">
+                <h2 class="section_title">Follow Us @ourstore</h2>
+                <p class="section_subtitle">Get inspired by our community</p>
+            </div>
+            <div class="instagram_grid">
+                <a href="https://instagram.com" class="instagram_item" target="_blank">
+                    <img src="/web/upload/instagram_01.jpg" alt="Instagram Post 1" />
+                    <div class="instagram_overlay">
+                        <span class="instagram_icon">📷</span>
+                    </div>
+                </a>
+                <a href="https://instagram.com" class="instagram_item" target="_blank">
+                    <img src="/web/upload/instagram_02.jpg" alt="Instagram Post 2" />
+                    <div class="instagram_overlay">
+                        <span class="instagram_icon">📷</span>
+                    </div>
+                </a>
+                <a href="https://instagram.com" class="instagram_item" target="_blank">
+                    <img src="/web/upload/instagram_03.jpg" alt="Instagram Post 3" />
+                    <div class="instagram_overlay">
+                        <span class="instagram_icon">📷</span>
+                    </div>
+                </a>
+                <a href="https://instagram.com" class="instagram_item" target="_blank">
+                    <img src="/web/upload/instagram_04.jpg" alt="Instagram Post 4" />
+                    <div class="instagram_overlay">
+                        <span class="instagram_icon">📷</span>
+                    </div>
+                </a>
+                <a href="https://instagram.com" class="instagram_item" target="_blank">
+                    <img src="/web/upload/instagram_05.jpg" alt="Instagram Post 5" />
+                    <div class="instagram_overlay">
+                        <span class="instagram_icon">📷</span>
+                    </div>
+                </a>
+                <a href="https://instagram.com" class="instagram_item" target="_blank">
+                    <img src="/web/upload/instagram_06.jpg" alt="Instagram Post 6" />
+                    <div class="instagram_overlay">
+                        <span class="instagram_icon">📷</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter_section">
+        <div class="container">
+            <div class="newsletter_content">
+                <h2 class="newsletter_title">Subscribe to Our Newsletter</h2>
+                <p class="newsletter_desc">Get exclusive deals, new arrivals, and special offers delivered to your inbox</p>
+                <form class="newsletter_form">
+                    <input type="email" class="newsletter_input" placeholder="Enter your email address" required />
+                    <button type="submit" class="newsletter_submit">Subscribe</button>
+                </form>
+                <p class="newsletter_privacy">We respect your privacy. Unsubscribe anytime.</p>
             </div>
         </div>
     </section>
