@@ -1,0 +1,61 @@
+<!--@layout(/layout/basic/layout.html)-->
+
+<!--@contents-->
+<div id="contents">
+    <!-- Hero Section -->
+    <section class="hero_section">
+        <div class="hero_content">
+            <h1 class="hero_title">Welcome to Our Store</h1>
+            <p class="hero_subtitle">Discover amazing products</p>
+        </div>
+    </section>
+
+    <!-- Main Product Grid (4 columns) -->
+    <section class="product_section">
+        <div class="section_header">
+            <h2>Featured Products</h2>
+        </div>
+        <div module="product_listmain_1" class="ec-base-product">
+            <!--
+                $count = 4
+                $basket_result = /product/add_basket.html
+                $basket_option = /product/basket_option.html
+                $moreview = no
+                $cache = yes
+            -->
+            <ul class="prdList grid4">
+                <!--@import(/product/list_product.html)-->
+            </ul>
+        </div>
+    </section>
+
+    <!-- Catalog Section (3 columns) -->
+    <section class="catalog_section">
+        <div class="section_header">
+            <h2>Shop by Category</h2>
+        </div>
+        <div module="product_listmain_2" class="ec-base-product">
+            <!--
+                $count = 3
+                $basket_result = /product/add_basket.html
+                $basket_option = /product/basket_option.html
+                $moreview = no
+                $cache = yes
+            -->
+            <ul class="prdList grid3">
+                <!--@import(/product/list_product.html)-->
+            </ul>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video_section">
+        <div class="video_wrapper">
+            <h2>Watch Our Story</h2>
+            <div class="video_container">
+                <!-- Video content here -->
+            </div>
+        </div>
+    </section>
+</div>
+<!--@/contents-->

@@ -1,0 +1,52 @@
+/* ========================================
+   Product List Page (listnormal) Stylesheet
+   For /product/list.html page
+   ======================================== */
+
+.xans-product-listnormal {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Product list grid for list page */
+.xans-product-listnormal .prdList,
+.xans-product-listnormal ul.prdList {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 3rem 2rem !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+}
+
+.xans-product-listnormal .prdList > li,
+.xans-product-listnormal .prdList li {
+    display: block !important;
+    position: relative !important;
+    float: none !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .xans-product-listnormal .prdList {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .xans-product-listnormal .prdList {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 2rem 1.5rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .xans-product-listnormal .prdList {
+        grid-template-columns: repeat(1, 1fr) !important;
+    }
+}

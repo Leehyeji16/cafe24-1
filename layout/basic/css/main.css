@@ -1,0 +1,328 @@
+/* ========================================
+   Cafe24 Skin Main Stylesheet
+   ======================================== */
+
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #3C3C36;
+}
+
+/* Hero Section */
+.hero_section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 8rem 2rem;
+    text-align: center;
+    color: white;
+}
+
+.hero_title {
+    font-size: 3rem;
+    margin: 0 0 1rem 0;
+    font-weight: 700;
+}
+
+.hero_subtitle {
+    font-size: 1.5rem;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Section Headers */
+.section_header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 4rem 2rem 0;
+}
+
+.section_header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: #3C3C36;
+}
+
+/* Product Section */
+.product_section,
+.catalog_section {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Video Section */
+.video_section {
+    background: #f9f9f9;
+    padding: 6rem 2rem;
+    margin-top: 4rem;
+}
+
+.video_wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.video_wrapper h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #3C3C36;
+}
+
+/* ========================================
+   PRODUCT GRID - CRITICAL OVERRIDE SECTION
+   ======================================== */
+
+/* Force remove any Cafe24 default styles that might interfere */
+.ec-base-product,
+div[module*="product_listmain"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* AGGRESSIVE GRID OVERRIDE - Multiple selector variations for maximum specificity */
+ul.prdList,
+.ec-base-product ul.prdList,
+div[module*="product_listmain"] ul.prdList,
+ul.prdList.grid4,
+ul.prdList.grid3,
+.ec-base-product ul.prdList.grid4,
+.ec-base-product ul.prdList.grid3 {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 3rem 2rem !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    /* Force remove any potential conflicting properties */
+    float: none !important;
+    clear: both !important;
+    overflow: visible !important;
+    position: relative !important;
+}
+
+/* 3-column grid variation */
+ul.prdList.grid3,
+.ec-base-product ul.prdList.grid3,
+div[module*="product_listmain"] ul.prdList.grid3 {
+    grid-template-columns: repeat(3, 1fr) !important;
+}
+
+/* Force grid items (li) to behave correctly within grid */
+ul.prdList > li,
+ul.prdList li,
+ul.prdList > li.prdList__item,
+ul.prdList li.prdList__item,
+.ec-base-product ul.prdList > li,
+.ec-base-product ul.prdList li,
+.prdList > li[id^="anchorBoxId_"],
+li.prdList__item[id^="anchorBoxId_"] {
+    display: block !important;
+    position: relative !important;
+    /* CRITICAL: Remove any float that Cafe24 might add */
+    float: none !important;
+    clear: none !important;
+    /* CRITICAL: Reset width constraints */
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    /* Reset margins and padding */
+    margin: 0 !important;
+    padding: 0 !important;
+    /* Ensure proper box model */
+    box-sizing: border-box !important;
+    /* Remove any absolute/fixed positioning */
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+}
+
+/* Thumbnail container with 1:1 aspect ratio */
+ul.prdList li .thumbnail,
+ul.prdList li div.thumbnail,
+.prdList__item .thumbnail,
+.prdList__item div.thumbnail {
+    display: block !important;
+    margin-bottom: 1rem !important;
+    overflow: hidden !important;
+    position: relative !important;
+    width: 100% !important;
+    padding-top: 100% !important; /* Creates 1:1 aspect ratio */
+    background: #f5f5f5 !important;
+    border-radius: 8px !important;
+}
+
+/* Thumbnail image positioning */
+ul.prdList li .thumbnail img,
+ul.prdList li div.thumbnail img,
+.prdList__item .thumbnail img,
+.prdList__item div.thumbnail img {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: transform 0.3s ease !important;
+}
+
+/* Hover effect on image */
+ul.prdList li .thumbnail:hover img,
+.prdList__item .thumbnail:hover img {
+    transform: scale(1.05) !important;
+}
+
+/* Product description */
+ul.prdList li .description,
+ul.prdList li div.description,
+.prdList__item .description,
+.prdList__item div.description {
+    padding: 1rem 0 !important;
+    text-align: center !important;
+}
+
+/* Product name */
+ul.prdList li .description .name,
+.prdList__item .description .name {
+    margin: 0 0 0.5rem 0 !important;
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+}
+
+ul.prdList li .description .name a,
+.prdList__item .description .name a {
+    color: #3C3C36 !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease !important;
+}
+
+ul.prdList li .description .name a:hover,
+.prdList__item .description .name a:hover {
+    color: #667eea !important;
+}
+
+/* Product price */
+ul.prdList li .description .price,
+.prdList__item .description .price {
+    margin: 0 !important;
+    font-size: 1.1rem !important;
+}
+
+ul.prdList li .description .price strong,
+.prdList__item .description .price strong {
+    font-weight: 700 !important;
+    color: #3C3C36 !important;
+}
+
+/* Buy Now button via ::after pseudo-element */
+ul.prdList > li::after,
+ul.prdList li::after,
+ul.prdList > li.prdList__item::after,
+ul.prdList li.prdList__item::after,
+.prdList__item::after,
+li.prdList__item[id^="anchorBoxId_"]::after {
+    content: 'Buy Now' !important;
+    display: block !important;
+    width: 120px !important;
+    color: #3C3C36 !important;
+    padding: 0.8rem 2rem !important;
+    text-align: center !important;
+    margin: 1rem auto 0 !important;
+    border: 1px solid #D9D9D9 !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+}
+
+ul.prdList li:hover::after,
+.prdList__item:hover::after {
+    background: #3C3C36 !important;
+    color: white !important;
+    border-color: #3C3C36 !important;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 1200px) {
+    ul.prdList,
+    ul.prdList.grid4,
+    ul.prdList.grid3,
+    .ec-base-product ul.prdList {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    ul.prdList,
+    ul.prdList.grid4,
+    ul.prdList.grid3,
+    .ec-base-product ul.prdList {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 2rem 1.5rem !important;
+    }
+
+    .hero_title {
+        font-size: 2rem;
+    }
+
+    .hero_subtitle {
+        font-size: 1.2rem;
+    }
+
+    .section_header h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    ul.prdList,
+    ul.prdList.grid4,
+    ul.prdList.grid3,
+    .ec-base-product ul.prdList {
+        grid-template-columns: repeat(1, 1fr) !important;
+        gap: 2rem !important;
+    }
+}
+
+/* ========================================
+   CAFE24 XANS CLASSES OVERRIDE
+   These target Cafe24's auto-generated classes
+   ======================================== */
+
+/* Override any xans-record- classes that might interfere */
+.prdList li .xans-record-,
+.prdList li div[class*="xans-record-"],
+.prdList__item .xans-record-,
+.prdList__item div[class*="xans-record-"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    float: none !important;
+    display: block !important;
+}
+
+/* Ensure thumbnail and description within xans-record- behave correctly */
+.prdList li .thumbnail.xans-record-,
+.prdList__item .thumbnail.xans-record- {
+    position: relative !important;
+    padding-top: 100% !important;
+}
+
+.prdList li .description.xans-record-,
+.prdList__item .description.xans-record- {
+    padding: 1rem 0 !important;
+}
