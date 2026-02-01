@@ -3,20 +3,20 @@
    ======================================== */
 
 /* ========================================
-   Pull-to-Refresh 방지 & 모바일 스크롤 안정화
+   모바일 스크롤 새로고침 방지
    ======================================== */
 html {
-    overscroll-behavior-y: none;
+    overscroll-behavior-y: none !important;
 }
 
 body {
-    overscroll-behavior-y: none;
+    overscroll-behavior-y: none !important;
 }
 
 /* Hero Section */
 .hero_section {
     position: relative;
-    min-height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100);
     min-height: 100svh;
     display: flex;
     align-items: flex-end;
@@ -208,7 +208,7 @@ body {
     padding: var(--spacing-2xl);
     opacity: 0;
     transform: translateX(-30px);
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* 애니메이션 활성화 */
@@ -241,7 +241,7 @@ body {
     border-radius: var(--radius-sm);
     font-size: var(--fs-base);
     font-weight: 500;
-    transition: all var(--transition-base);
+    transition: background-color var(--transition-base), border-color var(--transition-base), color var(--transition-base), transform var(--transition-base);
 }
 
 .story_btn:hover {
@@ -259,7 +259,7 @@ body {
     box-shadow: var(--shadow-md);
     opacity: 0;
     transform: translateX(30px);
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     transition-delay: 0.2s;
 }
 
@@ -297,7 +297,7 @@ body {
     position: relative;
     padding: var(--spacing-3xl) var(--spacing-2xl);
     text-align: left;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     background-color: transparent;
     border-radius: var(--radius-md);
     opacity: 0;
@@ -343,7 +343,7 @@ body {
     font-weight: 600;
     color: #C9A88A;
     letter-spacing: 0.1em;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .feature_card:nth-child(1)::before {
@@ -405,7 +405,7 @@ body {
     background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 6C7 6 4.5 7.5 4.5 10.5C4.5 13.5 6 15 7.5 15C9 15 10.5 13.5 10.5 12C10.5 10.5 9 9 7.5 9C6.75 9 6 9.375 6 9.375C6 9.375 6 7.5 7 6Z' fill='%23C9A88A'/%3E%3Cpath d='M15 6C15 6 12.5 7.5 12.5 10.5C12.5 13.5 14 15 15.5 15C17 15 18.5 13.5 18.5 12C18.5 10.5 17 9 15.5 9C14.75 9 14 9.375 14 9.375C14 9.375 14 7.5 15 6Z' fill='%23C9A88A'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: center;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 /* 닫는 따옴표 - 마지막 줄 오른쪽 아래 */
@@ -419,7 +419,7 @@ body {
     background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M17 18C17 18 19.5 16.5 19.5 13.5C19.5 10.5 18 9 16.5 9C15 9 13.5 10.5 13.5 12C13.5 13.5 15 15 16.5 15C17.25 15 18 14.625 18 14.625C18 14.625 18 16.5 17 18Z' fill='%23C9A88A'/%3E%3Cpath d='M9 18C9 18 11.5 16.5 11.5 13.5C11.5 10.5 10 9 8.5 9C7 9 5.5 10.5 5.5 12C5.5 13.5 7 15 8.5 15C9.25 15 10 14.625 10 14.625C10 14.625 10 16.5 9 18Z' fill='%23C9A88A'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: center;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .feature_card:hover p {
@@ -472,7 +472,7 @@ body {
     color: #3C3C36;
     border-radius: var(--radius-sm);
     font-size: var(--fs-base);
-    transition: all var(--transition-base);
+    transition: background-color var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
 }
 
 .newsletter_input::placeholder {
@@ -493,7 +493,7 @@ body {
     border-radius: var(--radius-sm);
     font-size: var(--fs-base);
     font-weight: 600;
-    transition: all var(--transition-base);
+    transition: background-color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
     white-space: nowrap;
 }
 
@@ -573,7 +573,7 @@ body {
     justify-content: center;
     cursor: pointer;
     z-index: 10;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .popup-close:hover {
@@ -677,7 +677,7 @@ body {
     font-size: 1.4rem;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
     text-align: center;
 }
@@ -731,7 +731,7 @@ body {
 /* Responsive Design */
 @media (max-width: 1024px) {
     .hero_section {
-        min-height: 80vh;
+        min-height: calc(var(--vh, 1vh) * 80);
         min-height: 80svh;
     }
 
@@ -751,7 +751,7 @@ body {
 /* 768px 이하 수정 */
 @media (max-width: 768px) {
     .hero_section {
-        min-height: 70vh;
+        min-height: calc(var(--vh, 1vh) * 70);
         min-height: 70svh;
     }
 
@@ -781,7 +781,7 @@ body {
         text-align: center;
         opacity: 0;
         transform: translateY(30px);
-        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         transition-delay: 0.3s;
     }
 
@@ -795,7 +795,7 @@ body {
         aspect-ratio: 16 / 9;
         opacity: 0;
         transform: translateY(30px);
-        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         transition-delay: 0s;
     }
 
@@ -898,6 +898,7 @@ body {
         gap: 1rem;
         padding: 0 1rem;
         overscroll-behavior-x: contain;
+        touch-action: pan-x;
     }
 
     .product_section .prdList::-webkit-scrollbar,
@@ -987,6 +988,7 @@ body {
         gap: 1rem;
         padding: 0 1rem;
         overscroll-behavior-x: contain;
+        touch-action: pan-x;
     }
 
     /* 스크롤바 숨기기 */
