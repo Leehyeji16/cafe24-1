@@ -1,5 +1,22 @@
 <!--@layout(/layout/basic/layout.html)-->
 
+<!-- 모바일 pull-to-refresh 새로고침 방지 (인라인으로 확실히 적용) -->
+<style>
+html,
+body,
+#wrap,
+#container,
+#contents,
+#main {
+    overscroll-behavior: none !important;
+    overscroll-behavior-y: none !important;
+}
+body {
+    padding-top: 1px !important;
+    margin-top: -1px !important;
+}
+</style>
+
 <div id="main">
 
   <!-- 히어로 섹션 -->
@@ -337,27 +354,32 @@
     // 모바일 스크롤 새로고침 방지
     // ========================================
 
-    // 1) --vh 커스텀 프로퍼티: 페이지 로드 시 1회만 설정
-    //    → 주소창이 접혀도 높이가 변하지 않아 레이아웃 점프 방지
+    // --vh 커스텀 프로퍼티: 페이지 로드 시 1회만 설정
     var vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', vh + 'px');
 
-    // 2) touchmove 기반 pull-to-refresh 차단
-    //    → 페이지 맨 위에서 아래로 당길 때 브라우저 새로고침 방지
-    var lastTouchY = 0;
-    document.addEventListener('touchstart', function (e) {
-      lastTouchY = e.touches[0].clientY;
+    // scrollTop을 절대 0으로 두지 않기 (가장 확실한 pull-to-refresh 방지법)
+    // → pull-to-refresh는 scrollTop === 0일 때만 트리거됨
+    // → 항상 1px 스크롤된 상태를 유지하면 브라우저가 맨 위라고 인식하지 않음
+    window.scrollTo(0, 1);
+    window.addEventListener('scroll', function () {
+      if (window.scrollY === 0) {
+        window.scrollTo(0, 1);
+      }
     }, { passive: true });
 
-    document.addEventListener('touchmove', function (e) {
-      var touchY = e.touches[0].clientY;
-      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
-
-      // 스크롤이 맨 위이고, 아래로 당기는 중이면 차단
-      if (scrollTop <= 0 && touchY > lastTouchY) {
-        e.preventDefault();
+    // Cafe24 래퍼 요소에도 overscroll-behavior 강제 적용
+    ['#wrap', '#container', '#contents'].forEach(function (sel) {
+      var el = document.querySelector(sel);
+      if (el) {
+        el.style.overscrollBehavior = 'none';
+        // 래퍼가 스크롤 컨테이너인 경우 대비
+        if (el.scrollTop === 0) el.scrollTop = 1;
+        el.addEventListener('scroll', function () {
+          if (el.scrollTop === 0) el.scrollTop = 1;
+        }, { passive: true });
       }
-    }, { passive: false });
+    });
 
     // 탭 기능
     var productTabs = document.querySelectorAll('.product-tab');
